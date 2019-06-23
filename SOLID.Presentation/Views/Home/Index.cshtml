@@ -1,4 +1,5 @@
-﻿@{
+﻿@model SOLID.Presentation.Models.DepositarModel
+@{
     ViewData["Title"] = "Caixa Eletronico";
 }
 
@@ -10,13 +11,10 @@
                     @using (Html.BeginForm("Depositar", "Home", FormMethod.Post))
                     {
                         <div class="form-group">
-                            <select name="numeroConta" class="form-control">
-                                <option value="1">Poupança</option>
-                                <option value="2">Corrente</option>
-                            </select>
+                            @Html.DropDownList("TipoTransacao_ID", new SelectList(ViewBag.TiposTransacoes, "ID", "Descricao"), "-- Selecione --", htmlAttributes: new { @class = "form-control", @Required = "True" })
                         </div>
                         <div class="form-group">
-                            <input type="number" class="form-control" id="valor" name="valor" placeholder="Digite o valor">
+                            @Html.EditorFor(md => md.Valor,  new { htmlAttributes = new { @class = "form-control required", @Required = "True" } })
                         </div>
                         <button type="submit" class="btn btn-primary">Depositar</button>
                     }

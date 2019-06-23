@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID.Database", "SOLID.Dat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SOLID.Presentation", "SOLID.Presentation\SOLID.Presentation.csproj", "{7A492D1B-6C7B-46CF-B356-59E87CE9701D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID.DataAccessObject", "SOLID.DataAccessObject\SOLID.DataAccessObject\SOLID.DataAccessObject.csproj", "{B8198B56-E859-4021-943A-C8EA9796CE9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID.Repository", "SOLID.Repository\SOLID.Repository\SOLID.Repository.csproj", "{D60E57D6-E37C-41EE-A0B3-54A70C6713FB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{7A492D1B-6C7B-46CF-B356-59E87CE9701D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A492D1B-6C7B-46CF-B356-59E87CE9701D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A492D1B-6C7B-46CF-B356-59E87CE9701D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8198B56-E859-4021-943A-C8EA9796CE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8198B56-E859-4021-943A-C8EA9796CE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8198B56-E859-4021-943A-C8EA9796CE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8198B56-E859-4021-943A-C8EA9796CE9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60E57D6-E37C-41EE-A0B3-54A70C6713FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60E57D6-E37C-41EE-A0B3-54A70C6713FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60E57D6-E37C-41EE-A0B3-54A70C6713FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60E57D6-E37C-41EE-A0B3-54A70C6713FB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

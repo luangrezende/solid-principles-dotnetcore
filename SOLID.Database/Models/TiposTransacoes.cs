@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SOLID.Database.Models
 {
-    public class TiposContas
+    public class TiposTransacoes
     {
         public int ID { get; set; }
 

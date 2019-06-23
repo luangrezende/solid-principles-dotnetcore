@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace SOLID.Database.Models
 {
-    public class ContaPoupanca : Contas
+    public class DebitoContaCorrente : Debito
     {
         public override int Depositar(int valor)
         {
-            return Saldo += valor;
+            return Valor += valor + 200;
         }
     }
 }
