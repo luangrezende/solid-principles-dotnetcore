@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Caixa Eletronico";
+}
+
+    <div class="row">
+        <div class="col-6">
+            <h1>Caixa Eletronico</h1>
+            <div class="card">
+                <div class="card-body">
+                    @using (Html.BeginForm("Depositar", "Home", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <select name="numeroConta" class="form-control">
+                                <option value="1">Poupança</option>
+                                <option value="2">Corrente</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="number" class="form-control" id="valor" name="valor" placeholder="Digite o valor">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Depositar</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>

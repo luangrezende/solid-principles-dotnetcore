@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SOLID</title>
+
+    <environment include="Development">
+        <link href="~/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <h3 class="text-muted">SOLID</h3>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <environment include="Development">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="~/js/bootstrap.js"></script>
+        <script src="~/js/site.js"></script>
+    </environment>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
