@@ -1,6 +1,7 @@
 ﻿using SOLID.Database;
 using SOLID.Database.Models;
 using SOLID.Repository.Repository;
+using SOLID.Services.Models;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,25 +15,35 @@ namespace SOLID.Services.Services
             contasRepository = new ContasRepository(context);
         }
 
-        public Conta Depositar(int idConta, double valor)
+        public ContaModel Depositar(int idConta, double valor)
         {
             Conta conta = contasRepository.BuscarPorId(idConta);
             conta.Depositar(valor);
             contasRepository.Atualizar(conta);
-            return conta;
+            return MontarObjetoConta(conta);
         }
 
-        public Conta Sacar(int idConta, double valor)
+        public ContaModel Sacar(int idConta, double valor)
         {
             Conta conta = contasRepository.BuscarPorId(idConta);
             conta.Sacar(valor);
             contasRepository.Atualizar(conta);
-            return conta;
+            return MontarObjetoConta(conta);
         }
 
         public List<Conta> ListarContas()
         {
             return contasRepository.Listar();
+        }
+
+        private ContaModel MontarObjetoConta(Conta conta)
+        {
+            ContaModel contaModel = new ContaModel
+            {
+                Nome = conta.Nome,
+                Saldo = conta.Saldo
+            };
+            return contaModel;
         }
     }
 }

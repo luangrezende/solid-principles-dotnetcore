@@ -2,6 +2,7 @@
 using SOLID.Database;
 using SOLID.Database.Models;
 using SOLID.Presentation.Models;
+using SOLID.Services.Models;
 using SOLID.Services.Services;
 
 namespace SOLID.Presentation.Controllers
@@ -21,18 +22,24 @@ namespace SOLID.Presentation.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult TransacaoConcluida(ContaModel conta)
+        {
+            return View(conta);
+        }
+
         [HttpPost]
         public IActionResult Depositar(DepositarModel deposito)
         {
-            Conta conta = contasServices.Depositar(deposito.Conta_ID, deposito.Valor);
-            return View("TransacaoConcluida", conta);
+            var conta = contasServices.Depositar(deposito.Conta_ID, deposito.Valor);
+            return RedirectToAction("TransacaoConcluida", conta);
         }
 
         [HttpPost]
         public IActionResult Sacar(DepositarModel deposito)
         {
-            Conta conta = contasServices.Sacar(deposito.Conta_ID, deposito.Valor);
-            return View("TransacaoConcluida", conta);
+            ContaModel conta = contasServices.Sacar(deposito.Conta_ID, deposito.Valor);
+            return RedirectToAction("TransacaoConcluida", conta);
         }
     }
 }
