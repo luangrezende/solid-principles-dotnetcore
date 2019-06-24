@@ -3,7 +3,6 @@ using SOLID.Database.Models;
 using SOLID.Repository.Repository;
 using SOLID.Services.Models;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SOLID.Services.Services
 {

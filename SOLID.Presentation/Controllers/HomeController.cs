@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SOLID.Database;
-using SOLID.Database.Models;
 using SOLID.Presentation.Models;
 using SOLID.Services.Models;
 using SOLID.Services.Services;
