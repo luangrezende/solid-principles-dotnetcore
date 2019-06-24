@@ -7,8 +7,7 @@ namespace SOLID.Presentation.Models
 {
     public class DepositarModel
     {
-        public int TipoTransacao_ID { get; set; }
-
         public int Valor { get; set; }
+        public int Conta_ID { get; set; }
     }
 }

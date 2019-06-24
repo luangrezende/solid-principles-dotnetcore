@@ -15,14 +15,26 @@ namespace SOLID.Repository.Repository
             db = context;
         }
 
-        public List<Contas> Listar()
+        public List<Conta> Listar()
         {
             return db.Contas.ToList();
         }
 
-        public Contas BuscarPorId(int id)
+        public Conta BuscarPorId(int id)
         {
             return db.Contas.Find(id);
+        }
+
+        public void Inserir(Conta conta)
+        {
+            db.Contas.Add(conta);
+            db.SaveChanges();
+        }
+
+        public void Atualizar(Conta conta)
+        {
+            db.Contas.Attach(conta);
+            db.SaveChanges();
         }
 
     }

@@ -1,16 +1,14 @@
-﻿@model SOLID.Database.Models.Contas
+﻿@model SOLID.Database.Models.Conta
 @{
     ViewData["Title"] = "Depositar";
 }
 
-<h2>Depositar</h2>
-
 <div class="card">
-  <div class="card-header">
-    Resultado
-  </div>
+    <div class="card-header">
+        Operação realizada com sucesso!
+    </div>
   <div class="card-body">
-      <h5 class="card-title">Depositado com sucesso!</h5>
+      <h5>Olá @Model.Nome</h5>
       <p class="card-text">
           @Html.Label("Saldo Atual: ")
           @Html.DisplayFor(md => Model.Saldo)

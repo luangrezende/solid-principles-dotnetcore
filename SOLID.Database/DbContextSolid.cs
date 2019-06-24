@@ -10,14 +10,16 @@ namespace SOLID.Database
     {
         public DbContextSolid(DbContextOptions<DbContextSolid> options) : base(options) { }
 
-        public virtual DbSet<Contas> Contas { get; set; }
-        public virtual DbSet<TiposTransacoes> TiposContas { get; set; }
-
-
+        public virtual DbSet<ContaCorrente> ContasCorrente { get; set; }
+        public virtual DbSet<ContaPoupanca> ContasPoupanca{ get; set; }
+        public virtual DbSet<Conta> Contas{ get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Contas>().ToTable("Contas");
-            modelBuilder.Entity<TiposTransacoes>().ToTable("TiposContas");
+            modelBuilder.Entity<Conta>()
+             .ToTable("Contas")
+             .HasDiscriminator<int>("TipoConta")
+             .HasValue<ContaCorrente>(1)
+             .HasValue<ContaPoupanca>(2);
         }
     }
 

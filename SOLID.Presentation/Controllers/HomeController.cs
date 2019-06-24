@@ -1,40 +1,48 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using SOLID.Database;
 using SOLID.Database.Models;
 using SOLID.Presentation.Models;
 using SOLID.Repository.Repository;
-using SOLID.Repository.Services;
 
 namespace SOLID.Presentation.Controllers
 {
     public class HomeController : Controller
     {
         private readonly DbContextSolid db;
-        private readonly TiposContasRepository tiposContasRepository;
+        private readonly ContasRepository contasRepository;
         public HomeController(DbContextSolid context)
         {
             db = context;
-            tiposContasRepository = new TiposContasRepository(db);
+            contasRepository = new ContasRepository(db);
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            return View(tiposContasRepository.Listar());
+            ViewBag.Contas = contasRepository.Listar();
+            return View();
         }
 
         [HttpPost]
         public IActionResult Depositar(DepositarModel deposito)
         {
-            Debito conta = new TiposContasServices().VerificarTipoTransacao(deposito.TipoTransacao_ID);
+            Conta conta = contasRepository.BuscarPorId(deposito.Conta_ID);
             conta.Depositar(deposito.Valor);
 
-            return View(conta);
+            contasRepository.Atualizar(conta);
+
+            return View("TransacaoConcluida", conta);
+        }
+
+        [HttpPost]
+        public IActionResult Sacar(DepositarModel deposito)
+        {
+            Conta conta = contasRepository.BuscarPorId(deposito.Conta_ID);
+            conta.Sacar(deposito.Valor);
+
+            contasRepository.Atualizar(conta);
+
+            return View("TransacaoConcluida", conta);
         }
     }
 }
