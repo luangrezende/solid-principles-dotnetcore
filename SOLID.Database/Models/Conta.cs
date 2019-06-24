@@ -9,7 +9,7 @@ namespace SOLID.Database.Models
         public string Nome { get; set; }
         public double Saldo { get; set; }
 
-        public abstract void Depositar(int valor);
-        public abstract void Sacar(int valor);
+        public abstract void Depositar(double valor);
+        public abstract void Sacar(double valor);
     }
 }

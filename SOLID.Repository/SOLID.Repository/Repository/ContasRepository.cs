@@ -28,12 +28,17 @@ namespace SOLID.Repository.Repository
         public void Inserir(Conta conta)
         {
             db.Contas.Add(conta);
-            db.SaveChanges();
+            Salvar();
         }
 
         public void Atualizar(Conta conta)
         {
             db.Contas.Attach(conta);
+            Salvar();
+        }
+
+        public void Salvar()
+        {
             db.SaveChanges();
         }
 
