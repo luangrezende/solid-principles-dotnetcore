@@ -8,13 +8,13 @@ namespace SOLID.Models.Models
         [Key]
         public int ID { get; set; }
 
-        [Display(Name = "Número da conta")]
+        [Display(Name = "Account number")]
         public int Account_ID { get; set; }
 
-        [Display(Name = "Valor")]
+        [Display(Name = "Value")]
         public double Value { get; set; }
 
-        [Display(Name = "Número do extrato")]
+        [Display(Name = "Extract number")]
         public int Number { get; set; }
 
         public void GenerateNumber()

@@ -28,11 +28,28 @@ namespace SOLID.Database.Migrations
 
                     b.Property<double>("Balance");
 
+                    b.Property<int>("User_ID");
+
                     b.HasKey("ID");
+
+                    b.HasIndex("User_ID");
 
                     b.ToTable("Accounts");
 
                     b.HasDiscriminator<int>("AccountType");
+                });
+
+            modelBuilder.Entity("SOLID.Models.Models.User", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("SOLID.Models.Models.CheckingAccount", b =>
@@ -47,6 +64,14 @@ namespace SOLID.Database.Migrations
                     b.HasBaseType("SOLID.Models.Models.Account");
 
                     b.HasDiscriminator().HasValue(2);
+                });
+
+            modelBuilder.Entity("SOLID.Models.Models.Account", b =>
+                {
+                    b.HasOne("SOLID.Models.Models.User", "User")
+                        .WithMany("Accounts")
+                        .HasForeignKey("User_ID")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618
         }

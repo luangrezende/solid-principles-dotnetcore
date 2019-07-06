@@ -1,0 +1,16 @@
+﻿@model SOLID.Models.Models.User
+@{
+    ViewData["Title"] = "Create a new user";
+}
+
+<h1>Add User</h1>
+
+@using (Html.BeginForm("Create", "User", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.EditorFor(md => md.Name, new { htmlAttributes = new { @class = "form-control required", @Required = "True" } })
+        <small id="emailHelp" class="form-text text-muted">Use this field do input your complete name</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+}

@@ -11,6 +11,11 @@ namespace SOLID.Services.Services
         public AccountService(DbContextSolid context) => accountRepository = new AccountRepository(context);
 
         //Methods
+        public List<Account> ToList()
+        {
+            return accountRepository.ToList();
+        }
+
         public Extract Deposit(int id, double value)
         {
             Account account = accountRepository.GetById(id);
@@ -29,11 +34,6 @@ namespace SOLID.Services.Services
             return GenerateExtract(id, value);
         }
 
-        public List<Account> ToList()
-        {
-            return accountRepository.ToList();
-        }
-
         private Extract GenerateExtract(int id, double value)
         {
             Extract extract = new Extract
@@ -43,6 +43,29 @@ namespace SOLID.Services.Services
             };
             extract.GenerateNumber();
             return extract;
+        }
+
+        public void CreateNewCheckingAccount(int idUser)
+        {
+            CheckingAccount account = new CheckingAccount
+            {
+                User_ID = idUser,
+            };
+            Insert(account);
+        }
+
+        public void CreateNewSavingsAccount(int idUser)
+        {
+            SavingsAccount account = new SavingsAccount
+            {
+                User_ID = idUser,
+            };
+            Insert(account);
+        }
+
+        private void Insert(Account account)
+        {
+            accountRepository.Insert(account);
         }
     }
 }

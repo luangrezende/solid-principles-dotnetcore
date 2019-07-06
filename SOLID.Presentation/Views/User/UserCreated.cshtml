@@ -1,0 +1,23 @@
+﻿@model SOLID.Models.Models.User
+@{
+    ViewData["Title"] = "UserCreated";
+}
+
+<h1>User created successfully</h1>
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card" style="width: 25rem;">
+            <div class="card-body">
+                <h5 class="card-title">@Model.Name</h5>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-4">
+        <a href="@Url.Action("Index", "Home")" class="btn btn-primary btn-sm">Back</a>
+    </div>
+</div>

@@ -3,7 +3,26 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="card" style="width: 25rem;">
+                <img class="card-img-top" src="/RootFiles/images/users.png" alt="Card image cap" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">Users</h5>
+                    <p class="card-text">Access this control panel to see all the users in database or to create a new</p>
+                    <a href="@Url.Action("Index", "User")" class="btn btn-primary btn-sm">Go!</a>
+                </div>
+            </div>
+        </div>
 
-
-<a href="@Url.Action("Index", "Account")">content</a>
+        <div class="col-lg-6">
+            <div class="card" style="width: 25rem;">
+                <img class="card-img-top" src="/RootFiles/images/cash.jpg" alt="Card image cap" height="200">
+                <div class="card-body">
+                    <h5 class="card-title">Accounts</h5>
+                    <p class="card-text">Access the cash machine and make operations in each account</p>
+                    <a href="@Url.Action("Index", "Account")" class="btn btn-primary btn-sm">Go!</a>
+                </div>
+            </div>
+        </div>
+    </div>

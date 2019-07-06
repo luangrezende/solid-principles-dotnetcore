@@ -9,6 +9,5 @@ namespace SOLID.Presentation.Controllers
         {
             return View();
         }
-
     }
 }

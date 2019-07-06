@@ -1,0 +1,32 @@
+﻿@model List<SOLID.Models.Models.User>
+@{
+    ViewData["Title"] = "Index";
+}
+
+    <h1>Users</h1>
+
+    <div class="row">
+        <div class="col-lg-4">
+            <a href="@Url.Action("Create", "User")" class="btn btn-primary btn-sm">Create</a>
+        </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+        @foreach (var user in Model)
+        {
+            <div class="col-lg-4">
+                <div class="card" style="width: 12rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">@user.Name</h5>
+                        @foreach (var account in user.Accounts)
+                        {
+                            <label>Saldo: </label>
+                            <p>@account.Balance</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

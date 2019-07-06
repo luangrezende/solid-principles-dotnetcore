@@ -34,7 +34,7 @@ namespace SOLID.Presentation.Controllers
         }
 
         [HttpPost]
-        public IActionResult Sacar(TransationModel transaction)
+        public IActionResult Serve(TransationModel transaction)
         {
             Extract account = accountService.Serve(transaction.Account_ID, transaction.Value);
             return RedirectToAction("TransactionSuccess", account);

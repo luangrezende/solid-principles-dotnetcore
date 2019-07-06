@@ -7,6 +7,8 @@ namespace SOLID.Database
     {
         public DbContextSolid(DbContextOptions<DbContextSolid> options) : base(options) { }
 
+        public virtual DbSet<User> User { get; set; }
+
         public virtual DbSet<Account> Account { get; set; }
         public virtual DbSet<CheckingAccount> CheckingAccount { get; set; }
         public virtual DbSet<SavingsAccount> SavingsAccount { get; set; }
@@ -18,6 +20,9 @@ namespace SOLID.Database
              .HasDiscriminator<int>("AccountType")
              .HasValue<CheckingAccount>(1)
              .HasValue<SavingsAccount>(2);
+
+            _ = modelBuilder.Entity<User>()
+             .ToTable("Users");
         }
     }
 }
