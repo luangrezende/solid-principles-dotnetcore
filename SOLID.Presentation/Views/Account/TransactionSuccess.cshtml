@@ -1,0 +1,21 @@
+﻿@model SOLID.Models.Models.Extract
+@{
+    ViewData["Title"] = "Depositar";
+}
+
+<div class="card">
+    <div class="card-header">
+        Operação realizada com sucesso!
+    </div>
+    <div class="card-body">
+        <h5>Olá @Model.Account_ID</h5>
+        <p class="card-text">
+            @Html.LabelFor(md => Model.Value)
+            @Html.DisplayFor(md => Model.Value)
+        </p>
+        <p class="card-text">
+            @Html.LabelFor(md => Model.Number)
+            @Html.DisplayFor(md => Model.Number)
+        </p>
+    </div>
+</div>

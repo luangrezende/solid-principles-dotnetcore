@@ -18,35 +18,33 @@ namespace SOLID.Database.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("SOLID.Database.Models.Conta", b =>
+            modelBuilder.Entity("SOLID.Models.Models.Account", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Nome");
+                    b.Property<int>("AccountType");
 
-                    b.Property<double>("Saldo");
-
-                    b.Property<int>("TipoConta");
+                    b.Property<double>("Balance");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Contas");
+                    b.ToTable("Accounts");
 
-                    b.HasDiscriminator<int>("TipoConta");
+                    b.HasDiscriminator<int>("AccountType");
                 });
 
-            modelBuilder.Entity("SOLID.Database.Models.ContaCorrente", b =>
+            modelBuilder.Entity("SOLID.Models.Models.CheckingAccount", b =>
                 {
-                    b.HasBaseType("SOLID.Database.Models.Conta");
+                    b.HasBaseType("SOLID.Models.Models.Account");
 
                     b.HasDiscriminator().HasValue(1);
                 });
 
-            modelBuilder.Entity("SOLID.Database.Models.ContaPoupanca", b =>
+            modelBuilder.Entity("SOLID.Models.Models.SavingsAccount", b =>
                 {
-                    b.HasBaseType("SOLID.Database.Models.Conta");
+                    b.HasBaseType("SOLID.Models.Models.Account");
 
                     b.HasDiscriminator().HasValue(2);
                 });

@@ -18,7 +18,7 @@ namespace SOLID.Presentation
         {
             _ = services.AddMvc();
             _ = services.AddEntityFrameworkSqlServer();
-            _ = services.AddDbContext<DbContextSolid>(options => options.UseSqlServer(Configuration.GetConnectionString("ConexaoLocal")));
+            _ = services.AddDbContext<DbContextSolid>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         public void Configure(IApplicationBuilder app)
