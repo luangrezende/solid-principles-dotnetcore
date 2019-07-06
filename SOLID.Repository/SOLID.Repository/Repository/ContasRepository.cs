@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using SOLID.Database;
+﻿using SOLID.Database;
 using SOLID.Database.Models;
 using System.Collections.Generic;
 using System.Linq;

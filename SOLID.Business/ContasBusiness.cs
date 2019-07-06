@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SOLID.Business
+﻿namespace SOLID.Business
 {
     public class ContasBusiness
     {
