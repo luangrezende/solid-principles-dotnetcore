@@ -16,7 +16,8 @@ namespace SOLID.Presentation.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            ViewBag.Accounts = new SelectList(accountService.ToList(), "ID", "Balance");
+            ViewBag.CheckingAccounts = new SelectList(accountService.ToList(), "ID", "Balance");
+            ViewBag.SavingsAccount = new SelectList(accountService.ToList(), "ID", "Balance");
             return View();
         }
 

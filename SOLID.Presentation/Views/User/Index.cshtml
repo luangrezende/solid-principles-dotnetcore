@@ -22,8 +22,7 @@
                         <h5 class="card-title">@user.Name</h5>
                         @foreach (var account in user.Accounts)
                         {
-                            <label>Saldo: </label>
-                            <p>@account.Balance</p>
+                            <p>@account.GetType().Name: @account.Balance</p>
                         }
                     </div>
                 </div>

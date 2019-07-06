@@ -12,7 +12,7 @@
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-group">
-                            @Html.DropDownList("Account_ID", ViewBag.Accounts, "-- Select --", htmlAttributes: new { @class = "form-control", @Required = "True" })
+                            @Html.DropDownList("Account_ID", ViewBag.CheckingAccounts, "-- Select --", htmlAttributes: new { @class = "form-control", @Required = "True" })
                         </div>
                         <div class="form-group">
                             @Html.EditorFor(md => md.Value, new { htmlAttributes = new { @class = "form-control required", @Required = "True" } })
@@ -31,7 +31,47 @@
                     {
                         @Html.AntiForgeryToken()
                         <div class="form-group">
-                            @Html.DropDownList("Account_ID", ViewBag.Accounts, "-- Select --", htmlAttributes: new { @class = "form-control", @Required = "True" })
+                            @Html.DropDownList("Account_ID", ViewBag.CheckingAccounts, "-- Select --", htmlAttributes: new { @class = "form-control", @Required = "True" })
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(md => md.Value, new { htmlAttributes = new { @class = "form-control required", @Required = "True" } })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Serve</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <h1>Deposit</h1>
+            <div class="card">
+                <div class="card-body">
+                    @using (Html.BeginForm("Deposit", "Account", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.DropDownList("Account_ID", ViewBag.SavingsAccount, "-- Select --", htmlAttributes: new { @class = "form-control", @Required = "True" })
+                        </div>
+                        <div class="form-group">
+                            @Html.EditorFor(md => md.Value, new { htmlAttributes = new { @class = "form-control required", @Required = "True" } })
+                        </div>
+                        <button type="submit" class="btn btn-primary">Deposit</button>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <h1>Serve</h1>
+            <div class="card">
+                <div class="card-body">
+                    @using (Html.BeginForm("Serve", "Account", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @Html.DropDownList("Account_ID", ViewBag.SavingsAccount, "-- Select --", htmlAttributes: new { @class = "form-control", @Required = "True" })
                         </div>
                         <div class="form-group">
                             @Html.EditorFor(md => md.Value, new { htmlAttributes = new { @class = "form-control required", @Required = "True" } })
