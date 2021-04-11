@@ -1,1 +1,1 @@
-# SOLID-principles-dotnetcore
+# SOLID Principles with .NET Core
